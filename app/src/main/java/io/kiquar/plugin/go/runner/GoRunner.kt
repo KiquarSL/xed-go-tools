@@ -31,7 +31,7 @@ class GoRunner(
             activity = activity,
             terminalCommand = TerminalCommand(
                 exe = "/bin/go",
-                args = arrayOf("run", fileObject.getName()),
+                args = arrayOf("run", fileObject.getAbsolutePath()),
                 id = id,
                 workingDir = workingDir,
             ),
