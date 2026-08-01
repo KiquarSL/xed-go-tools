@@ -1,0 +1,14 @@
+{
+  "$schema": "schema\/schema.json",
+  "id": "io.kiquar.plugin.go",
+  "name": "Go Tools",
+  "mainClass": "io.kiquar.plugin.go.Main",
+  "version": "0.2.0",
+  "description": "Install golang and gopls",
+  "author": {
+    "displayName": "KiquarSL",
+    "github": "KiquarSL"
+  },
+  "minAppVersion": 95,
+  "repository": "https:\/\/github.com\/KiquarSL\/xed-go-tools"
+}

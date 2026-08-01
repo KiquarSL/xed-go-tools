@@ -1,0 +1,94 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "version": "0.1.0",
+  "name": "Go Mod",
+  "scopeName": "source.go.mod",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#keywords" },
+    { "include": "#directives" },
+    { "include": "#module_paths" },
+    { "include": "#version_numbers" },
+    { "include": "#strings" },
+    { "include": "#numbers" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "begin": "//",
+          "end": "$",
+          "name": "comment.line.double-slash.go.mod"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "match": "\\b(module|go|require|replace|exclude|retract)\\b",
+          "name": "keyword.control.go.mod"
+        }
+      ]
+    },
+    "directives": {
+      "patterns": [
+        {
+          "match": "^(module|go|require|replace|exclude|retract)\\s*",
+          "captures": {
+            "1": { "name": "keyword.other.directive.go.mod" }
+          }
+        }
+      ]
+    },
+    "module_paths": {
+      "patterns": [
+        {
+          "match": "(?<=module\\s+)([a-zA-Z0-9_/\\.-]+)",
+          "name": "entity.name.type.module.go.mod"
+        },
+        {
+          "match": "(?<=require\\s+|replace\\s+)([a-zA-Z0-9_/\\.-]+)(?=\\s+v)",
+          "name": "entity.name.type.package.go.mod"
+        }
+      ]
+    },
+    "version_numbers": {
+      "patterns": [
+        {
+          "match": "\\b(v[0-9]+(\\.[0-9]+)*(\\-[0-9a-zA-Z-]+)?(\\+[0-9a-zA-Z-]+)?)\\b",
+          "name": "constant.numeric.version.go.mod"
+        },
+        {
+          "match": "\\b(go\\s+)([0-9]+(\\.[0-9]+)?)\\b",
+          "captures": {
+            "1": { "name": "keyword.other.directive.go.mod" },
+            "2": { "name": "constant.numeric.version.go.mod" }
+          }
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "begin": "\"",
+          "end": "\"",
+          "name": "string.quoted.double.go.mod",
+          "patterns": [
+            {
+              "match": "\\\\.",
+              "name": "constant.character.escape.go.mod"
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "match": "\\b[0-9]+(\\.[0-9]+)?\\b",
+          "name": "constant.numeric.go.mod"
+        }
+      ]
+    }
+  }
+}

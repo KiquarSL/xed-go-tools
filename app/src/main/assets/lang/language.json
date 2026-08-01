@@ -1,0 +1,10 @@
+{
+  "languages": [
+    {
+      "grammar": "lang/go.mod.tmLanguage.json",
+      "name": "Go Module",
+      "scopeName": "source.go.mod",
+      "languageConfiguration": "lang/go.mod-config.json"
+    }
+  ]
+}
