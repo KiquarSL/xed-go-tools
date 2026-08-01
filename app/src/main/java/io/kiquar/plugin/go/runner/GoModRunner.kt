@@ -15,15 +15,14 @@ class GoModRunner(
 
     override val id = "go.mod.run"
     override val label = "Run Go Project"
-    override val supportedExtensions = listOf("mod")
 
     override fun getIcon(context: Context) = icon
-
-    override fun matches(fileObject: FileObject): Boolean {
+	
+    fun matcher(fileObject: FileObject): Boolean {
         return fileObject.getName() == "go.mod"
     }
 
-    override suspend fun execute(activity: Activity, fileObject: FileObject) {
+    suspend fun run(activity: Activity, fileObject: FileObject) {
         val projectRoot = fileObject.getParentFile()?.getAbsolutePath()
         launchTerminal(
             activity = activity,

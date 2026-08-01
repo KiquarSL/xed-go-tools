@@ -15,15 +15,14 @@ class GoRunner(
 
     override val id = "go.run"
     override val label = "Run Go File"
-    override val supportedExtensions = listOf("go")
 
     override fun getIcon(context: Context) = icon
 
-    override fun matches(fileObject: FileObject): Boolean {
-        return supportedExtensions.contains(fileObject.getExtension())
+    fun matcher(fileObject: FileObject): Boolean {
+        return fileObject.getExtension() == "go"
     }
 
-    override suspend fun execute(activity: Activity, fileObject: FileObject) {
+    suspend fun run(activity: Activity, fileObject: FileObject) {
         val workingDir = fileObject.getParentFile()?.getAbsolutePath()
         launchTerminal(
             activity = activity,
