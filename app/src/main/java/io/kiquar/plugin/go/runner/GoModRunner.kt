@@ -2,15 +2,12 @@ package io.kiquar.plugin.go.runner
 
 import android.content.Context
 import android.app.Activity
-import android.content.res.Resources
 import com.rk.file.FileObject
 import com.rk.icons.Icon
 import com.rk.runner.Runner
 import com.rk.file.BuiltinFileType
 import com.rk.exec.launchTerminal
 import com.rk.exec.TerminalCommand
-import com.rk.activities.main.MainActivity
-import java.io.File
 
 class GoModRunner(
     val icon: Icon? = BuiltinFileType.GO.icon,
@@ -18,14 +15,15 @@ class GoModRunner(
 
     override val id = "go.mod.run"
     override val label = "Run Go Project"
+    override val supportedExtensions = listOf("mod")
 
     override fun getIcon(context: Context) = icon
 
-    override fun matcher(fileObject: FileObject): Boolean {
+    override fun matches(fileObject: FileObject): Boolean {
         return fileObject.getName() == "go.mod"
-    } 
+    }
 
-    override suspend fun run(activity: Activity, fileObject: FileObject) {
+    override suspend fun execute(activity: Activity, fileObject: FileObject) {
         val projectRoot = fileObject.getParentFile()?.getAbsolutePath()
         launchTerminal(
             activity = activity,
@@ -38,7 +36,7 @@ class GoModRunner(
         )
     }
 
-    override suspend fun isRunning() = false
+    override suspend fun isRunning(): Boolean = false
 
     override suspend fun stop() {}
 }

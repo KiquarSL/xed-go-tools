@@ -50,7 +50,7 @@ class GoServer(
     }
 
 
-    override suspend fun isUpdatable(context: Context): Boolean {
+    override suspend fun hasUpdate(context: Context): Boolean {
         val versionFile = sandboxHomeDir().child(".lsp/go/version.txt")
         val currentVersionText = runCatching { versionFile.readText().trim() }.getOrNull() ?: return false
         return currentVersionText != goLspVersion

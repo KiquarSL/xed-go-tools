@@ -5,8 +5,8 @@ import com.rk.file.FileType
 import com.rk.icons.Icon
 import com.rk.file.BuiltinFileType
 
-class HaskellLanguage(resources: Resources) : FileType {
-    override val extensions = listOf()
+class GoModLanguage(resources: Resources) : FileType {
+    override val extensions = listOf("mod")
     override val textmateScope = "source.go.mod"
     override val name = "go.mod"
     override val title = "Go Module"

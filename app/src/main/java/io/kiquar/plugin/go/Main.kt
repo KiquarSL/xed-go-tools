@@ -13,6 +13,7 @@ import io.github.rosemoe.sora.langs.textmate.registry.provider.AssetsFileResolve
 import java.io.File
 import io.kiquar.plugin.go.runner.GoRunner
 import io.kiquar.plugin.go.runner.GoModRunner
+import com.rk.file.FileTypeManager
 
 @Keep
 @Suppress("unused")
