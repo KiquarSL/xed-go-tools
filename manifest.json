@@ -10,7 +10,7 @@
     "github": "KiquarSL"
   },
   "license": "MIT",
-  "tags": ["go", "gopls", "tools" "golang", "mod", "highlighting", "runner"],
+  "tags": ["go", "gopls", "tools", "golang", "mod", "highlighting", "runner"],
   "minAppVersion": 95,
   "repository": "https:\/\/github.com\/KiquarSL\/xed-go-tools"
 }

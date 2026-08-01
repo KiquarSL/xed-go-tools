@@ -1,6 +1,5 @@
 **/build/**
 output/**
-app/libs/sdk.jar
 *.iml
 .gradle
 /local.properties
@@ -16,3 +15,5 @@ app/libs/sdk.jar
 .externalNativeBuild
 .cxx
 local.properties
+workspace.json
+.androidide
